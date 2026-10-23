@@ -1,3 +1,4 @@
-/.DS_Store
-/.github
-/Cargo.lock
+.DS_Store
+/target/
+/dist/
+/Docker Daisy.app/

@@ -47,6 +47,7 @@ cat > "$APP_PATH/Contents/Info.plist" <<PLIST
   <key>CFBundleVersion</key><string>$VERSION</string>
   <key>LSMinimumSystemVersion</key><string>11.0</string>
   <key>NSHighResolutionCapable</key><true/>
+  <key>NSPrincipalClass</key><string>NSApplication</string>
 </dict></plist>
 PLIST
 printf 'APPL????' > "$APP_PATH/Contents/PkgInfo"

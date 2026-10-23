@@ -40,8 +40,8 @@ Per notarizzare il DMG, configura un profilo `notarytool` nel Portachiavi e aggi
 
 ## Build automatica e release GitHub
 
-`.github/workflows/macos.yml` esegue formattazione e build a ogni push, pull request e avvio manuale. Pubblica un DMG firmato su GitHub Releases quando viene inviato un tag `v*`.
+`.github/workflows/macos.yml` controlla la formattazione e carica il bundle `.app` e il DMG come artifact a ogni push, pull request e avvio manuale. Pubblica un DMG firmato su GitHub Releases quando viene inviato un tag `v*`.
 
-Per le release, configura i segreti GitHub `DEVELOPER_ID_APPLICATION`, `MACOS_CERTIFICATE_P12` (certificato in Base64), `MACOS_CERTIFICATE_PASSWORD`, `APPLE_ID`, `APPLE_APP_PASSWORD` e `APPLE_TEAM_ID`. Il job crea un profilo temporaneo `notarytool`, firma e notarizza il DMG, poi lo allega alla release.
+Per firmare e notarizzare le release, configura i segreti GitHub `DEVELOPER_ID_APPLICATION`, `MACOS_CERTIFICATE_P12` (certificato in Base64), `MACOS_CERTIFICATE_PASSWORD`, `APPLE_ID`, `APPLE_APP_PASSWORD` e `APPLE_TEAM_ID`. Quando i segreti Apple sono presenti, il job firma e notarizza il DMG; senza, pubblica comunque un DMG non firmato, così il tag crea una release scaricabile anche prima di configurare il certificato.
 
 Le dimensioni dei layer mostrate nell’anello provengono da `docker image history`: possono includere layer condivisi fra immagini e non vengono sommate di nuovo allo spazio totale, che usa invece lo spazio esclusivo riportato da Docker.

@@ -3,6 +3,8 @@ use eframe::egui::{self, Align2, Color32, FontId, Pos2, Sense, Shape, Stroke, Ve
 use serde::Deserialize;
 use std::{
     collections::{HashMap, HashSet},
+    env,
+    path::PathBuf,
     process::Command,
     sync::mpsc::{self, Receiver},
     thread,
@@ -98,8 +100,42 @@ struct Usage {
     size: i64,
 }
 
+fn docker_cli() -> Result<PathBuf> {
+    let mut candidates = Vec::new();
+    if let Some(configured) = env::var_os("DOCKER_CLI") {
+        candidates.push(PathBuf::from(configured));
+    }
+    if let Some(path) = env::var_os("PATH") {
+        candidates.extend(env::split_paths(&path).map(|dir| dir.join("docker")));
+    }
+    #[cfg(target_os = "macos")]
+    {
+        candidates.extend([
+            PathBuf::from("/usr/local/bin/docker"),
+            PathBuf::from("/opt/homebrew/bin/docker"),
+            PathBuf::from("/Applications/Docker.app/Contents/Resources/bin/docker"),
+            PathBuf::from("/Applications/Docker Desktop.app/Contents/Resources/bin/docker"),
+        ]);
+        if let Some(home) = env::var_os("HOME") {
+            let home = PathBuf::from(home);
+            candidates.push(home.join(".docker/bin/docker"));
+            candidates.push(home.join("Applications/Docker.app/Contents/Resources/bin/docker"));
+        }
+    }
+    let mut seen = HashSet::new();
+    candidates
+        .into_iter()
+        .find(|path| seen.insert(path.clone()) && path.is_file())
+        .ok_or_else(|| {
+            anyhow::anyhow!(
+                "Docker CLI non trovato. Installalo con Docker Desktop oppure imposta DOCKER_CLI al percorso di docker."
+            )
+        })
+}
+
 fn docker(args: &[&str]) -> Result<String> {
-    let output = Command::new("docker")
+    let cli = docker_cli()?;
+    let output = Command::new(cli)
         .args(args)
         .output()
         .context("Docker CLI non trovato")?;
@@ -124,7 +160,8 @@ fn inspect<T: for<'de> Deserialize<'de>>(ids: &[String]) -> Result<Vec<T>> {
     }
     let mut args = vec!["inspect".to_owned()];
     args.extend(ids.iter().cloned());
-    let output = Command::new("docker")
+    let cli = docker_cli()?;
+    let output = Command::new(cli)
         .args(args)
         .output()
         .context("lettura dettagli Docker non riuscita")?;
