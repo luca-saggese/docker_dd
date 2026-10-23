@@ -1,0 +1,12 @@
+/Users/imac/Dev/docker_dd/target/release/deps/ecolor-01e622d216bc7062.d: /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/lib.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/color32.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva_gamma.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/rgba.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hex_color_runtime.rs
+
+/Users/imac/Dev/docker_dd/target/release/deps/libecolor-01e622d216bc7062.rlib: /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/lib.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/color32.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva_gamma.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/rgba.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hex_color_runtime.rs
+
+/Users/imac/Dev/docker_dd/target/release/deps/libecolor-01e622d216bc7062.rmeta: /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/lib.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/color32.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva_gamma.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/rgba.rs /Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hex_color_runtime.rs
+
+/Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/lib.rs:
+/Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/color32.rs:
+/Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva_gamma.rs:
+/Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hsva.rs:
+/Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/rgba.rs:
+/Users/imac/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.32.3/src/hex_color_runtime.rs:
